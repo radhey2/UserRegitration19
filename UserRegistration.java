@@ -16,6 +16,12 @@ public class UserRegistration {
         System.out.println("enter Email Address");
         String Email = sc3.nextLine();
         System.out.println(validEmail(Email));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your mobile number : ");
+        String phoneNo = scanner.nextLine();
+        System.out.println(validPhoneNum(phoneNo));
+
+
     }
     public static String validFirstName(String firstName) {
         String P = "^[A-Z][a-z]{3,30}$";
@@ -45,7 +51,6 @@ public class UserRegistration {
     }
     public static String validEmail(String email){
 
-
         String Email ="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
         boolean matchFind = email.matches(Email);
         if (matchFind){
@@ -56,6 +61,23 @@ public class UserRegistration {
         }
         return email;
     }
+
+    public static String validPhoneNum(String phoneNo){
+
+        String p = "^[0-9]{2}\\s{0,1}[0-9]{10}$";
+        Pattern p3 = Pattern.compile(p);
+        Matcher m3 = p3.matcher(phoneNo);
+        boolean r3 = m3.matches();
+        if (r3){
+            System.out.println("Match found");
+        }
+        else {
+            System.out.println("Match not Found");
+        }
+        return phoneNo;
+
+    }
+
 
 
 }
