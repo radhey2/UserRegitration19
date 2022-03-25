@@ -20,6 +20,11 @@ public class UserRegistration {
         System.out.print("Enter your mobile number : ");
         String phoneNo = scanner.nextLine();
         System.out.println(validPhoneNum(phoneNo));
+        Scanner sc5 = new Scanner(System.in);
+        System.out.println("Enter password");
+        String P = sc5.nextLine();
+        System.out.println(validPassWord(P));
+
 
 
     }
@@ -75,7 +80,22 @@ public class UserRegistration {
             System.out.println("Match not Found");
         }
         return phoneNo;
+    }
 
+    public static String validPassWord(String p) {
+
+        String password = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$";
+        Pattern p1 = Pattern.compile(password);
+        Matcher m1 = p1.matcher(p);
+        boolean matchFound = m1.matches();
+        if (matchFound){
+            System.out.println("match Found");
+        }
+        else {
+            System.out.println("Match Not Found");
+        }
+
+        return p;
     }
 
 
