@@ -24,6 +24,10 @@ public class UserRegistration {
         System.out.println("Enter password");
         String P = sc5.nextLine();
         System.out.println(validPassWord(P));
+        Scanner sc6 = new Scanner(System.in);
+        System.out.println("Enter password");
+        String Q = sc6.nextLine();
+        System.out.println(validPassWordAtLeastOneUpperCase(Q));
 
 
 
@@ -96,6 +100,22 @@ public class UserRegistration {
         }
 
         return p;
+    }
+
+    public static String validPassWordAtLeastOneUpperCase(String Q) {
+
+        String password = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+        Pattern p1 = Pattern.compile(password);
+        Matcher m1 = p1.matcher(Q);
+        boolean matchFound = m1.matches();
+        if (matchFound){
+            System.out.println("match Found");
+        }
+        else {
+            System.out.println("Match Not Found");
+        }
+
+        return Q;
     }
 
 
