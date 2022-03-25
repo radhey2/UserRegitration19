@@ -28,6 +28,11 @@ public class UserRegistration {
         System.out.println("Enter password");
         String Q = sc6.nextLine();
         System.out.println(validPassWordAtLeastOneUpperCase(Q));
+        Scanner sc7 = new Scanner(System.in);
+        System.out.println("Enter password");
+        String R = sc7.nextLine();
+        System.out.println(validPassWordAtLeastOneNumber(R));
+
 
 
 
@@ -117,6 +122,23 @@ public class UserRegistration {
 
         return Q;
     }
+
+    public static String validPassWordAtLeastOneNumber(String p) {
+
+        String password = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+        Pattern p1 = Pattern.compile(password);
+        Matcher m1 = p1.matcher(p);
+        boolean matchFound = m1.matches();
+        if (matchFound){
+            System.out.println("match Found");
+        }
+        else {
+            System.out.println("Match Not Found");
+        }
+
+        return p;
+    }
+
 
 
 
