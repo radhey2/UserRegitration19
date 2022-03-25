@@ -8,6 +8,10 @@ public class UserRegistration {
         System.out.println("Enter First Name");
         String FirstName = sc.nextLine();
         System.out.println(validFirstName(FirstName));
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("enter last name");
+        String LastName = sc1.next();
+        System.out.println(validLastName(LastName));
     }
     public static String validFirstName(String firstName) {
         String P = "^[A-Z][a-z]{3,30}$";
@@ -21,4 +25,22 @@ public class UserRegistration {
         }
         return firstName;
     }
+
+    public static String validLastName(String lastname) {
+
+
+        Pattern LastName = Pattern.compile(lastname, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = LastName.matcher(lastname);
+        boolean matchFound = matcher.find();
+        if (matchFound) {
+            System.out.println("match found");
+        } else {
+            System.out.println("match not found");
+        }
+
+
+        return lastname;
+    }
+
+
 }
